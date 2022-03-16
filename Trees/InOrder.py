@@ -1,4 +1,4 @@
-#Given a binary tree, return the inorder traversal of its nodes' values.
+#Given a binary tree, return the inorder, pre-order, post-order traversal of its nodes' values.
 
 # Definition for a  binary tree node
 # class TreeNode:
@@ -11,6 +11,20 @@ def in_order(root, ans):
         in_order(root.left, ans)
         ans.append(root.val)
         in_order(root.right, ans)         
+        return ans
+
+def pre_order(root, ans):
+    if root:
+        ans.append(root.val)
+        pre_order(root.left, ans)
+        pre_order(root.right, ans)         
+        return ans
+
+def post_order(root, ans):
+    if root:
+        post_order(root.left, ans)
+        post_order(root.right, ans) 
+        ans.append(root.val)
         return ans
         
 class Solution:
